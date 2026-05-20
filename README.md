@@ -1,62 +1,38 @@
 # DataBridge Importer
 
-Sistema profissional desenvolvido em Python para importação, validação e persistência de dados de clientes/leads a partir de planilhas Excel.
+Importador de planilhas Excel desenvolvido em Python para validação e persistência de dados em banco SQLite.
 
-O projeto simula uma necessidade real encontrada em empresas comerciais, financeiras e administrativas: transformar planilhas desorganizadas em dados confiáveis dentro de um sistema estruturado.
-
----
-
-# Visão Geral
-
-O **DataBridge Importer** automatiza o processo de:
-
-* leitura de arquivos Excel `.xlsx`;
-* validação de dados;
-* tratamento de inconsistências;
-* persistência em banco SQLite;
-* geração de relatórios;
-* exportação de registros.
-
-O sistema foi projetado com arquitetura organizada, separação de responsabilidades e foco em boas práticas de desenvolvimento backend.
+O projeto foi criado para automatizar um fluxo comum em ambientes corporativos: receber dados em planilhas, validar informações e armazenar registros de forma estruturada.
 
 ---
 
-# Demonstração das funcionalidades
+## Funcionalidades
 
-## Principais recursos
-
-* Importação de planilhas Excel
+* Importação de arquivos `.xlsx`
 * Validação automática de dados
-* Persistência em banco SQLite
+* Persistência em SQLite
 * Histórico de importações
-* Exportação para CSV
+* Exportação de registros para CSV
 * Relatórios resumidos
-* Interface de terminal profissional
+* Interface de terminal
 * Testes automatizados
-* Arquitetura escalável
-* Estrutura semelhante a sistemas corporativos reais
 
 ---
 
-# Tecnologias utilizadas
+## Tecnologias utilizadas
 
-| Tecnologia   | Finalidade                 |
-| ------------ | -------------------------- |
-| Python 3.11+ | Backend principal          |
-| SQLite       | Persistência de dados      |
-| OpenPyXL     | Leitura de planilhas Excel |
-| Rich         | Interface terminal moderna |
-| Pytest       | Testes automatizados       |
-| Git/GitHub   | Versionamento              |
-| PowerShell   | Automação do ambiente      |
+* Python 3.11+
+* SQLite
+* OpenPyXL
+* Rich
+* Pytest
+* Git/GitHub
 
 ---
 
-# Arquitetura do projeto
+## Estrutura do projeto
 
-O projeto foi estruturado utilizando separação em camadas para facilitar manutenção, escalabilidade e organização.
-
-```text
+```text id="4f8mvt"
 databridge-importer/
 ├── app/
 │   ├── core/
@@ -72,182 +48,114 @@ databridge-importer/
 ├── docs/
 ├── scripts/
 ├── tests/
-├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
 
-## Responsabilidades das camadas
+---
 
-| Camada       | Responsabilidade                 |
-| ------------ | -------------------------------- |
-| models       | Representação das entidades      |
-| database     | Conexão e inicialização do banco |
-| repositories | Operações SQL                    |
-| services     | Regras de negócio                |
-| ui           | Interface do usuário             |
-| tests        | Testes automatizados             |
-| scripts      | Automação auxiliar               |
+## Arquitetura
+
+O projeto foi organizado em camadas para facilitar manutenção e expansão:
+
+* `models` → entidades principais
+* `database` → conexão e gerenciamento do banco
+* `repositories` → operações SQL
+* `services` → regras de negócio e validações
+* `ui` → interface do terminal
+* `tests` → testes automatizados
 
 ---
 
-# Problema de negócio resolvido
+## Formato esperado da planilha
 
-Empresas frequentemente recebem dados em planilhas Excel contendo:
+```text id="tqjlwm"
+nome | email | telefone | empresa | valor
+```
 
-* informações inconsistentes;
-* dados incompletos;
-* duplicidades;
-* erros de preenchimento.
-
-O DataBridge Importer automatiza a validação e padronização desses dados antes do armazenamento.
-
-Isso reduz:
-
-* retrabalho;
-* erros humanos;
-* inconsistências em CRM/ERP;
-* tempo operacional.
-
----
-
-# Regras de validação
-
-O sistema realiza validações reais de negócio:
+### Regras de validação
 
 * Nome mínimo de 3 caracteres
 * Email válido
 * Telefone com pelo menos 10 dígitos
 * Empresa obrigatória
-* Valor acima de zero
-
-Formato esperado da planilha:
-
-```text
-nome | email | telefone | empresa | valor
-```
+* Valor maior que zero
 
 ---
 
-# Execução do projeto
+## Execução do projeto
 
-## Clonar o repositório
+### Clonar o repositório
 
-```powershell
+```powershell id="m2xw6j"
 git clone https://github.com/SEU-USUARIO/databridge-importer.git
 cd databridge-importer
 ```
 
-## Criar ambiente virtual
+### Criar ambiente virtual
 
-```powershell
+```powershell id="3drn0d"
 py -3.14 -m venv .venv
 ```
 
-## Ativar ambiente
+### Ativar ambiente virtual
 
-```powershell
+```powershell id="sq53bi"
 .\.venv\Scripts\Activate.ps1
 ```
 
-## Instalar dependências
+### Instalar dependências
 
-```powershell
+```powershell id="j6pfd8"
 pip install -r requirements.txt
 ```
 
-## Gerar planilha de exemplo
+### Gerar planilha de exemplo
 
-```powershell
+```powershell id="jlwmpt"
 python scripts/create_sample_excel.py
 ```
 
-## Executar sistema
+### Executar aplicação
 
-```powershell
+```powershell id="1q7e5o"
 python -m app.main
 ```
 
-## Executar testes
+### Executar testes
 
-```powershell
+```powershell id="6g7n7j"
 pytest
 ```
 
 ---
 
-# Funcionalidades que demonstram maturidade técnica
+## Funcionalidades futuras
 
-Este projeto demonstra:
-
-* arquitetura em camadas;
-* separação de responsabilidades;
-* persistência de dados;
-* validação robusta;
-* uso de ambiente virtual;
-* organização profissional;
-* testes automatizados;
-* versionamento com Git;
-* documentação técnica.
-
----
-
-# Diferenciais do projeto
-
-## Simulação de cenário corporativo real
-
-O projeto foi pensado para simular demandas comuns em:
-
-* ERP
-* CRM
-* sistemas administrativos
-* automação empresarial
-* backoffice
-
----
-
-## Estrutura pronta para evolução
-
-O sistema pode evoluir facilmente para:
-
+* Integração com PostgreSQL
 * API REST com FastAPI
-* dashboard web
-* autenticação de usuários
-* PostgreSQL
-* integração com sistemas externos
-* upload via navegador
-* deploy em nuvem
+* Dashboard web
+* Sistema de autenticação
+* Logs estruturados
+* Upload de arquivos pela interface
 
 ---
 
-# Testes automatizados
+## Git e versionamento
 
-O projeto utiliza `Pytest` para validação das regras de negócio críticas.
+### Exemplo de commits
 
-Exemplos:
-
-* validação de email;
-* validação de telefone;
-* campos obrigatórios;
-* valores inválidos.
-
----
-
-# Git e versionamento
-
-Exemplo de commits utilizados:
-
-```text
+```text id="xgnx9j"
 feat: add excel import workflow
-feat: persist validated leads in sqlite
-feat: add terminal dashboard
-test: add validation service tests
-docs: improve project documentation
+feat: persist leads in sqlite
+feat: add export to csv
+test: add validation tests
+docs: improve readme
 ```
 
-Branches sugeridas:
+### Organização de branches
 
-```text
+```text id="sy6x6o"
 main
 feature/excel-import
 feature/database
@@ -257,55 +165,24 @@ feature/tests
 
 ---
 
-# O que este projeto demonstra para recrutadores
+## Objetivos do projeto
 
-## Hard Skills
+* Trabalhar com manipulação de planilhas Excel
+* Aplicar validação de dados
+* Utilizar persistência com SQLite
+* Organizar uma aplicação Python em camadas
+* Implementar testes automatizados
+* Simular um fluxo comum de sistemas administrativos
+
+---
+
+## Habilidades utilizadas
 
 * Python
-* SQLite
-* Manipulação de Excel
 * SQL
-* Validação de dados
-* Arquitetura backend
+* Manipulação de arquivos Excel
+* Arquitetura em camadas
+* Tratamento de erros
 * Testes automatizados
-* Git/GitHub
-
-## Soft Skills percebidas
-
-* Organização
-* Capacidade analítica
-* Estruturação de projeto
-* Atenção a detalhes
-* Pensamento voltado para negócio
-
----
-
-# Nível técnico demonstrado
-
-O projeto demonstra perfil de:
-
-* Desenvolvedor Python Júnior
-* Estagiário acima da média
-* Backend iniciante com boas práticas
-
-Apesar de ser um projeto de portfólio, sua estrutura se aproxima da organização encontrada em aplicações reais.
-
----
-
-# Melhorias futuras
-
-* PostgreSQL
-* Docker
-* API REST
-* Interface web
-* Login/autenticação
-* Dashboard analítico
-* Logs estruturados
-* Deploy em cloud
-* Integração com CRM
-
----
-
-# Autor
-
-Desenvolvido por um estudante apaixonado por tecnologia, automação e desenvolvimento de software, com foco em evolução contínua e construção de projetos práticos para o mercado de TI.
+* Git e GitHub
+* Organização de projetos backend
