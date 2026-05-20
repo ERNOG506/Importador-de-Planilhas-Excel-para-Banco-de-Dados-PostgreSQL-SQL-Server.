@@ -1,4 +1,4 @@
-# DataBridge Importer
+# Importador de planilhas Excel
 
 Importador de planilhas Excel desenvolvido em Python para validação e persistência de dados em banco SQLite.
 
